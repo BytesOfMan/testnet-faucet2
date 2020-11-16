@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BCH Testnet Faucet</title>
+  <title>BCHA Testnet Faucet</title>
 
   <link href="css/bootstrap.min.css" media="all" rel="stylesheet" />
   <link href="css/main.css" media="all" rel="stylesheet" />
+  <link rel="shortcut icon" href="images/favicon.ico">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,36 +22,25 @@
 <header class='navbar navbar-default navbar-fixed-top'>
   <nav class='container' role='navigation'>
     <div class='navbar-header'>
-      <a href='index.html' class='navbar-brand'>BCH Testnet Faucet</a>
+      <a class="navbar-brand" href='https://bitcoinabc.org'>Bitcoin ABC website</a></li>
+      </ul>
     </div>
   </nav>
 </header>
 
 <section style="padding-top: 70px;">
   <div class='container'>
-    <div class='row well well-lg'>
+    <div class='row well well-sm'>
       <div class='col-md-10'>
         <h2>
-          BCH Testnet Faucet brought to you by <a href="https://FullStack.cash">FullStack.cash</a>
+          <img src="images/bitcoin-abc256.png" alt="Bitcoin ABC" />
+          BCHA Testnet Faucet<br />
         </h2>
         <p class='lead'>
-          This is a testnet faucet built with
-          <a href="https://www.npmjs.com/package/@chris.troutner/bch-js">bch-js</a>
-          JavaScript SDK for Bitcoin Cash! It currently gives
-          out 0.1 BCH.
+          This faucet gives out 0.1 tBCHA per request.
         </p>
-        <p>
-          <a href="https://github.com/christroutner/testnet-faucet2" target="_blank">Fork this demo on GitHub!</a>
-        </p>
-      </div>
-
-      <div class='col-md-2'>
-        <a href="https://psfoundation.cash/">
-          <img src='images/Favicon-512.png' alt='Permissionless Software Foundation' style="width: 50%" />
-        </a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -66,18 +56,18 @@
             <input type="text" class="form-control" id="bchAddr" size="60" placeholder="bchtest:pqnqv9lt7e5vjyp0w88zf2af0l92l8rxdghdzfvj4e">
           </div>
         </form>
-        <button type="button" class="btn btn-default" onclick="requestBCH()">Get tBCH!</button>
+        <button type="button" class="btn btn-lg" onclick="requestBCH()">Get tBCHA!</button>
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-12">
         <p>
-          Please send tBCH back to this faucet at this address:<br>
+          Please send tBCHA back to this faucet at this address:<br>
           <b>bchtest:pqnqv9lt7e5vjyp0w88zf2af0l92l8rxdghdzfvj4e</b>
         </p>
         <p>
-          Current Balance: <span id=balance>0.00</span> BCH
+          <em>Current Balance: <span id=balance>0.00</span> tBCHA</em>
         </p>
       </div>
     </div>
@@ -92,6 +82,10 @@
   </div>
 
 </section>
+
+<footer class='well well-sm'>
+  <p> This faucet is built using the <a href="https://fullstack.cash/" target="_blank">FullStack.cash</a> API</p>
+</footer>
 
 
 
