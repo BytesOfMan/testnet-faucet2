@@ -7,6 +7,6 @@
 module.exports = {
   session: 'secret-boilerplate-token',
   token: 'secret-jwt-token',
-  database: 'mongodb://localhost:27017/faucet-server-test',
+  database: 'mongodb://172.17.0.1:5555/faucet-server-test',
   env: 'test'
 }
