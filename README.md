@@ -16,22 +16,39 @@ Provide several DoS mitigation features:
 * npm __^6.7.0__
 
 ## Installation
+
 ```bash
 git clone https://github.com/Fabcien/testnet-faucet2.git faucet
 cd faucet
 
 npm install
+```
 
+Create a `wallet.json` file at the root of the project, with a content similar to:
+
+```json
+{
+  "mnemonic": "Your faucet wallet mnemonic",
+  "cashAddress": "bchtest:qzcpnsw4nfgzn0k5lnf59pphws0egs74fc7k7lzaa4",
+  "legacyAddress": "mwa65TNGEVCPfHt55aQqcwEjcWgfokuttN"
+}
+```
+
+Then:
+
+```
 docker-compose up -d koa-mongodb
 
 BCHJSTOKEN=<your fullstack.cash API token> \
-FAUCET_ENV=production \
+FULLSTACKLOGIN=<your fullstack.cash API login> \
+FULLSTACKPASS=<your fullstack.cash API password> \
 npm start
 ```
 
 Then navigate to `front-end/index.html`.
 
 ## Structure
+
 ```
 ├── bin
 │   └── server.js            # Bootstrapping and entry point
