@@ -40,8 +40,6 @@ Then:
 docker-compose up -d koa-mongodb
 
 BCHJSTOKEN=<your fullstack.cash API token> \
-FULLSTACKLOGIN=<your fullstack.cash API login> \
-FULLSTACKPASS=<your fullstack.cash API password> \
 npm start
 ```
 
