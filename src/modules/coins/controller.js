@@ -85,7 +85,8 @@ class CoinsController {
 
       // Allow sending to itself, to test the system. All other addresses use
       // IP and address filtering to prevent abuse of the faucet.
-      if (bchAddr !== _this.config.appAddress) {
+      // Disable in production environment to prevent from fee exhaust attacks.
+      if (_this.config.env == 'prod' || bchAddr !== _this.config.appAddress) {
         // Check if IP Address already exists in the database.
         const ipIsKnown = await _this.seenIPAddress(ip)
         // const ipIsKnown = false // Used for testing.
