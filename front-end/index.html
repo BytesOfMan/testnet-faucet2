@@ -52,7 +52,7 @@
       <div class="col-sm-12">
         <form class="form-inline">
           <div class="form-group">
-            <label for="peerId">BCH Testnet Address: </label>
+            <label for="peerId">BCHA Testnet Address: </label>
             <input type="text" class="form-control" id="bchAddr" size="60" placeholder="bchtest:qq725wp6vvqvga25ucmf3xk8uac7v3mx4s05x275l6">
           </div>
         </form>
@@ -131,7 +131,7 @@
 
       const bchAddr = $('#bchAddr').val()
       if(bchAddr === "") {
-        appendToWell(`Error: BCH Address can not be blank`)
+        appendToWell(`Error: BCHA Address can not be blank`)
         return
       }
 
@@ -144,15 +144,15 @@
       if(!body.success) {
         const message = body.message
 
-        if(message === `Invalid BCH cash address.`)
-          appendToWell(`Error: Invalid BCH testnet address`)
+        if(message === `Invalid BCHA cash address.`)
+          appendToWell(`Error: Invalid BCHA testnet address`)
         else
-          appendToWell(`Error: This BCH address has been used before, or you need to wait 24 hours to request from this IP address.`)
+          appendToWell(`Error: This BCHA address has been used before, or you need to wait 24 hours to request from this IP address.`)
 
         return
       }
 
-      appendToWell(`Success: tBCH are on their way!`)
+      appendToWell(`Success: tBCHA are on their way!`)
       appendToWell(`TXID: ${body.txid}`)
     } catch(err) {
       console.log(`Error in requestBCH: `, err)
