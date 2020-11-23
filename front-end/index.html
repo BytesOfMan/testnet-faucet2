@@ -23,6 +23,7 @@
   <nav class='container' role='navigation'>
     <div class='navbar-header'>
       <a class="navbar-brand" href='https://bitcoinabc.org'>Bitcoin ABC website</a></li>
+      <a class="navbar-brand" href='https://texplorer.bitcoinabc.org/'>Testnet Explorer</a></li>
       </ul>
     </div>
   </nav>
@@ -152,7 +153,7 @@
       }
 
       appendToWell(`Success: tBCHA are on their way!`)
-      appendToWell(`TXID: ${body.txid}`)
+      appendHTMLToWell(`<p>TXID: <a href="https://texplorer.bitcoinabc.org/tx/${body.txid}">${body.txid}</a></p>`)
     } catch(err) {
       console.log(`Error in requestBCH: `, err)
     }
@@ -175,6 +176,11 @@
     wellText = wellText + '\n' + str
 
     $('#outWell').text(wellText)
+  }
+
+  // Append some html to the output well.
+  function appendHTMLToWell(content) {
+    $('#outWell').append(content)
   }
 
 </script>
