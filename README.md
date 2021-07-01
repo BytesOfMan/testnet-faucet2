@@ -1,6 +1,6 @@
-# BCHA Testnet Faucet
+# eCash Testnet Faucet
 
-A testnet faucet for the Bitcoin ABC network.
+A testnet faucet for the eCash network.
 
 This is based on the work from [Chris Troutner](https://github.com/christroutner/testnet-faucet2).
 

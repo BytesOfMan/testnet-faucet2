@@ -6,6 +6,9 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 200px;
+  background-color: #001137;
+  background-image: url("../images/bg.png");
+  color: #FFF; 
 }
 
 footer {
@@ -18,15 +21,44 @@ footer {
 }
 
 button {
-  background-color: #F59332;
-  border: 1px solid #4D4D4D;
+  background-color: #CD0BC3;
   color: #fff;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0px;
+}
+
+h2 {
+  /*color: #CD0BC3;*/
+  font-weight: bold;
+}
+
+input[type], .input-like {
+  background-color: #273498;
+  color: #FF21D0;
+  font-weight: bold;
+  border: 1px solid #CD0BC3;
 }
 
 .row {
+  background-color: #001137;
   margin-bottom: 30px;
+  border: 1px solid #CD0BC3;
+  border: 0px;
+  padding: 20px;
+}
+
+.navbar-default {
+  background-color: #001137;
+  border: 0px;
+}
+
+.navbar-default .navbar-brand {
+  color: #FF21D0;
+  font-weight: bold;
+  margin: 0px 20px;
+}
+
+.center {
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
