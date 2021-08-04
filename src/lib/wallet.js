@@ -7,6 +7,7 @@
 const config = require('../../config')
 const State = require('./state')
 const wlogger = require('./wlogger')
+const ecashaddr = require('ecashaddrjs')
 
 const BCHJS = require('@psf/bch-js')
 
@@ -32,7 +33,7 @@ class Wallet {
       }
 
       _this.state = new State()
-      _this.bchjs = new BCHJS({ restURL: 'https://tapi.fullstack.cash/v3/' })
+      _this.bchjs = new BCHJS({ restURL: _this.config.APISERVER })
     } catch (err) {
       throw new Error('Could not open wallet.json file.')
     }
@@ -61,11 +62,18 @@ class Wallet {
   // Send BCH to an address
   // This function returns a hex string of a transaction, ready to be broadcast
   // to the network.
-  async sendBCH (bchAddr) {
+  async sendBCH (ectestAddr) {
     try {
       // Exit if not a valid cash address.
-      const isValid = _this.validateAddress(bchAddr)
+      const isValid = _this.validateAddress(ectestAddr)
       if (!isValid) return false
+
+      // NB validation function updated to validate for ectest: address
+      // However, sendBCH method requires conversion of bchtest: to legacy format
+      // So, convert it to bchtest: here
+      const { type, hash } = ecashaddr.decode(ectestAddr)
+      // Convert to a prefix that isCashAddress and isTestnetAddress can validate
+      const bchAddr = ecashaddr.encode('bchtest', type, hash)
 
       // Amount to send in satoshis
       const AMOUNT_TO_SEND = _this.config.satsToSend
@@ -163,7 +171,7 @@ class Wallet {
     try {
       // sendRawTransaction to running BCH node
       const txid = await _this.bchjs.RawTransactions.sendRawTransaction(hex)
-      console.log(`Sending BCH. Transaction ID: ${txid}`)
+      console.log(`Sending tXEC. Transaction ID: ${txid}`)
 
       return txid
     } catch (err) {
@@ -195,10 +203,18 @@ class Wallet {
   }
 
   // Returns true if BCH address is valid, false otherwise.
-  validateAddress (bchAddr) {
+  validateAddress (ectestAddr) {
     try {
-      const isCashAddress = _this.bchjs.Address.isCashAddress(bchAddr)
-      const isTestnetAddress = _this.bchjs.Address.isTestnetAddress(bchAddr)
+      // Split it into parts
+      const { prefix, type, hash } = ecashaddr.decode(ectestAddr)
+      // Reject addresses without ectest prefix
+      if (prefix !== 'ectest') {
+        return false
+      }
+      // Convert to a prefix that isCashAddress and isTestnetAddress can validate
+      const bchtestAddr = ecashaddr.encode('bchtest', type, hash)
+      const isCashAddress = _this.bchjs.Address.isCashAddress(bchtestAddr)
+      const isTestnetAddress = _this.bchjs.Address.isTestnetAddress(bchtestAddr)
 
       if (isCashAddress && isTestnetAddress) {
         return true

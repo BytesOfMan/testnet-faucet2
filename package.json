@@ -25,6 +25,7 @@
     "apidoc": "^0.23.0",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
+    "ecashaddrjs": "^1.0.7",
     "glob": "^7.0.0",
     "jsonwebtoken": "^8.3.0",
     "jwt-bch-lib": "^1.1.4",
