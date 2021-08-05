@@ -17,6 +17,6 @@ module.exports = {
   apiLevel: 10, // Tier of access: 10 = free, 20 = full node, 30 = indexer, 40 = SLP
 
   satsToSend: tenthBCH, // Amount of satoshis to send on each request.
-  appAddress: 'ectest:qqhd020crqg78qhy2aky6m9j46p36yn8zc8zyddycc',
+  appAddress: 'ectest:qq725wp6vvqvga25ucmf3xk8uac7v3mx4s5qgxq5aq',
   bchPerHour: tenthBCH * 10
 }
