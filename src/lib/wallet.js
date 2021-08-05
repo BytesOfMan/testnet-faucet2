@@ -168,6 +168,7 @@ class Wallet {
 
   // Broadcast a hex string to the network.
   async broadcastTx (hex) {
+    console.log('hex', hex)
     try {
       // sendRawTransaction to running BCH node
       const txid = await _this.bchjs.RawTransactions.sendRawTransaction(hex)
